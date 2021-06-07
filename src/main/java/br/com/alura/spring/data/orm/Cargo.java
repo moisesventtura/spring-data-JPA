@@ -1,7 +1,5 @@
 package br.com.alura.spring.data.orm;
 
-import jdk.jfr.internal.Repository;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
