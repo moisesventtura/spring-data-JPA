@@ -1,12 +1,19 @@
 package br.com.alura.spring.data.orm;
 
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "unidade_trabalho")
 public class UnidadeTrabalho {
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String descricao;
@@ -38,12 +45,18 @@ public class UnidadeTrabalho {
         this.endereco = endereco;
     }
 
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
+
     @Override
     public String toString() {
-        return "Unidade {" +
-                "id="  + id +
-                ", descricao= '" + descricao + '\'' +
-                ", endereco= '" + endereco + '\'' +
-                '}';
+        return "Unidades: " + "id:" + id +
+                "| descricao:" + descricao +
+                "| endereco:" + endereco;
     }
 }
